@@ -1,28 +1,52 @@
 class PostsController < ApplicationController
     def index
-        @content_1='Sample blog body  1'
-        @content_2='Sample blog body  2'
+        @blogs=Post.all
     end
 
-    def new
-    
-    end
-
-    def create
-    
+    def show
+        @publikacija=Post.find(params[:id])
     end
 
     def edit
-
+        @ndroe=Post.find(params[:id])
     end
 
     def update
+        @ndroe=Post.find(params[:id])
+        @ndroe.update(ndroe_params)
+        redirect_to posts_path, :notice => "Your post has been saved"
+    end
 
+    private
+  
+    def ndroe_params
+       params.require(:post).permit(:title, :body, :category_id)
     end
 
     def new
-    
+        @risi = Post.new
+        @kategorija = Category.all
     end
+
+
+    def create
+        @risi = Post.new(risi_params)
+        if @risi.save
+            redirect_to posts_path, :notice => "Your post has been saved"
+        else
+            render "new"
+        end
+     end
+  
+     private
+  
+     def risi_params
+        params.require(:post).permit(:title, :body, :category_id)
+     end
+
+
+
+
 
     def destroy
 

@@ -1,1 +1,5 @@
-<h1>Show post</h1>
+<h1><%= @publikacija.title%></h1>
+<small><%= @publikacija.created_at.strftime ("%b %d. %Y") %></small>
+<p><%= @publikacija.body %></>
+<hr>
+<%= link_to "Edit Post", edit_post_path %>

@@ -1,6 +1,13 @@
 <h1>Posts</h1>
-<h2> Sample blog title  1</h2>
-<p><%= @content_1 %> </p>
-<hr>
-<h2> Sample blog title 2</h2>
-<p><%= @content_2 %></p>
+
+<><% @blogs.each do |blog| %></>
+    <h3><%= link_to blog.title, blog %></h3>
+    <p><%= blog.body %> </p>
+    <hr>
+<% end %>
+<%= link_to "Add new Post", new_post_path %>
+
+
+
+
+
