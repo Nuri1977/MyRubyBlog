@@ -5,6 +5,16 @@ class PostsController < ApplicationController
 
     def show
         @publikacija=Post.find(params[:id])
+        @id_kategorija=@publikacija.category_id
+        @categories=Category.all
+        @categories.each do |c|
+            if c.id == @id_kategorija
+            @ime_kategorija=c.name
+            end
+        end
+
+ 
+
     end
 
     def new

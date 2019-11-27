@@ -1,11 +1,11 @@
 <h1>Posts</h1>
 
-<><% @blogs.each do |blog| %></>
-    <h3><%= link_to blog.title, blog %></h3>
-    <p><%= blog.body %> </p>
+<><% @blogs.each do |b| %></>
+    <h3><%= link_to b.title, b %></h3>
+    <p><%= b.body %> </p>
     <hr>
 <% end %>
-<%= link_to "Add new Post", new_post_path %>
+
 
 
 

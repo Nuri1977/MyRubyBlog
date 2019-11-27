@@ -1,5 +1,9 @@
 <h1><%= @publikacija.title%></h1>
 <small><%= @publikacija.created_at.strftime ("%b %d. %Y") %></small>
-<p><%= @publikacija.body %></>
+<p><%= @publikacija.body %></p>
+<p>Category: <%=  link_to @ime_kategorija, category_path(:id => @id_kategorija) %></p>
+
+
+
+
 <hr>
-<%= link_to "Edit Post", edit_post_path %>
